@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "LinkedIn Connector",
+    "description": "Automatically sends connection requests to all suggested profiles.",
+    "version": "1.0",
+    "permissions": ["scripting", "activeTab"],
+    "host_permissions": [
+      "https://www.linkedin.com/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://www.linkedin.com/mynetwork/grow/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      
+      "default_icon": "icon.png"
+    },
+    "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
+  }
+  
